@@ -1,0 +1,27 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: rates-service
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+
+app:
+  kafka:
+    topics:
+      rates-updates: rates.updates
+      rates-requests: rates.requests
+      rates-replies: rates.replies
+
+  rates:
+    publish-period-ms: 10000
+    currencies:
+      - USD
+      - EUR
+    initial-values:
+      USD: 90.00
+      EUR: 100.00
+    delta:
+      USD: 2.00
+      EUR: 2.50
